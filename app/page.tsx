@@ -76,7 +76,7 @@ export default function Portfolio() {
     additionalGifs.map(() => ({ scale: 1, offsetX: 0, offsetY: 0 }))
   );
 
-  function updateGifConfig(index, newProps) {
+  function updateGifConfig(index: number, newProps: Partial<typeof gifConfigs[0]>) {
     setGifConfigs(cfgs =>
       cfgs.map((cfg, i) => (i === index ? { ...cfg, ...newProps } : cfg))
     );
