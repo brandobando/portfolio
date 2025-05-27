@@ -11,7 +11,7 @@ const GifPlayer = dynamic(() => import("@/components/gif-player"), {
 });
 
 // Hook to detect visibility with hysteresis thresholds
-const useOnScreen = (ref) => {
+function useOnScreen(ref: RefObject<Element>): boolean {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
