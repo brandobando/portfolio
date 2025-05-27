@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState, useMemo, type RefObject } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import VideoPlayer from "@/components/video-player";
@@ -11,7 +11,7 @@ const GifPlayer = dynamic(() => import("@/components/gif-player"), {
 });
 
 // Hook to detect visibility with hysteresis thresholds
-function useOnScreen(ref: RefObject<Element>): boolean {
+const useOnScreen = (ref) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function Portfolio() {
     additionalGifs.map(() => ({ scale: 1, offsetX: 0, offsetY: 0 }))
   );
 
-  function updateGifConfig(index: number, newProps: Partial<typeof gifConfigs[0]>) {
+  function updateGifConfig(index, newProps) {
     setGifConfigs(cfgs =>
       cfgs.map((cfg, i) => (i === index ? { ...cfg, ...newProps } : cfg))
     );
