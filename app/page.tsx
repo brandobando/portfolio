@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState, useMemo } from "react";
+import React, { useEffect, useRef, useState, useMemo, type RefObject } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import VideoPlayer from "@/components/video-player";
